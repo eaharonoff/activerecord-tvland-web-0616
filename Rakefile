@@ -18,3 +18,11 @@ namespace :db do
     File.delete(connection_details.fetch('database')) if File.exist?(connection_details.fetch('database'))
   end
 end
+
+task :console do
+  require 'irb'
+  require 'irb/completion'
+  require 'my_gem' # You know what to do.
+  ARGV.clear
+  IRB.start
+end
